@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const HomePage = (props) => {
   return (
     <div>
-      <h1>Here is the HomePage</h1>
+      <h1>Test</h1>
       <Link to="/tests">Go To Test Page</Link>
     </div>
   )
