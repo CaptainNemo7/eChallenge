@@ -12,10 +12,15 @@ import { Link } from 'react-router-dom';
 */
 
 export default class Form2 extends Component {
-	constructor(props) {
-		super(props)
-	}
-	render() {
-		return <div>Form2 works</div>
-	}
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    return (
+      <div>
+        <div>Form2 works</div>
+        <Link to="/form3">Save and Continue to Form 3</Link>
+      </div>
+    );
+  }
 }
