@@ -14,13 +14,80 @@ import { Link } from 'react-router-dom';
 export default class Form2 extends Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      firstName: '',
+      lastName: '',
+      phone: '',
+    }
+    
+    this.onFirstNameChange = this.onFirstNameChange.bind(this);
+    this.onLastNameChange = this.onLastNameChange.bind(this);
+    this.onPhoneChange = this.onPhoneChange.bind(this);
   }
+
+  onFirstNameChange(event) {
+    this.setState({
+      firstName: event.target.value
+    })
+  }
+
+  onLastNameChange(event) {
+    this.setState({
+      lastName: event.target.value
+    })
+  }
+
+  onPhoneChange(event) {
+    this.setState({
+      phone: event.target.value
+    })
+  }
+
   render() {
     return (
       <div>
-        <div>Form2 works</div>
-        <Link to="/form3">Save and Continue to Form 3</Link>
+        <h1>Form2</h1>
+        <form 
+          className='input-group'
+        >
+          <input
+            placeholder='Enter First Name'
+            className='form-control'
+            value={this.state.firstName}
+            onChange={this.onFirstNameChange}
+          />
+
+          <input
+            placeholder='Enter Last Name'
+            className='form-control'
+            value={this.state.lastName}
+            onChange={this.onLastNameChange}
+          />
+
+          <input
+            placeholder='Enter Phone Number'
+            className='form-control'
+            value={this.state.phone}
+            onChange={this.onPhoneChange}
+          />
+
+          <span className="input-group-btn">
+            <Link type='submit' className='btn btn-secondary' to="/form3">
+              Save and Continue to Form 3
+            </Link>
+          </span>     
+        </form>
       </div>
     );
   }
 }
+
+
+
+    // return (
+    //   <div>
+    //     <div>Form2 works</div>
+    //     <Link to="/form3">Save and Continue to Form 3</Link>
+    //   </div>
+    // );

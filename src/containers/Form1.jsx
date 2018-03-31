@@ -20,7 +20,7 @@ export default class Form1 extends Component {
       password: '',
       email: '',
     }
-    
+
     this.onUsernameChange = this.onUsernameChange.bind(this);
     this.onPasswordChange = this.onPasswordChange.bind(this);
     this.onEmailChange = this.onEmailChange.bind(this);
@@ -47,7 +47,7 @@ export default class Form1 extends Component {
   render() {
     return (
       <div>
-        <div>Form1 works</div>
+        <h1>Form1</h1>
         <form 
           className='input-group'
         >
