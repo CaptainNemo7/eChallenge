@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+/* landing page 
+	- welcome
+	- start form button to the FIRST FORM
+*/
 
 const HomePage = (props) => {
   return (
