@@ -6,7 +6,6 @@ var bodyParser = require('body-parser');
 
 // Set port
 app.set('port', process.env.PORT || 4568);
-// app.set('port', process.env.PORT || 8080);
 
 
 // Static Files
@@ -33,14 +32,20 @@ app.all('*',function(req,res,next) {
 app.get('/', (req,res) => {
   res.send('good to go')
 })
-// app.post('/', (req, res) => {
-// 	console.log(req.body);
-// 	res.send(200)
-// })
 
 app.post('/form1', (req, res) => {
   console.log(req.body);
-  res.send(200)
+  res.sendStatus(200)
+})
+
+app.post('/form2', (req, res) => {
+  console.log(req.body);
+  res.sendStatus(200)
+})
+
+app.post('/form3', (req, res) => {
+  console.log(req.body);
+  res.sendStatus(200)
 })
 
 // Init server

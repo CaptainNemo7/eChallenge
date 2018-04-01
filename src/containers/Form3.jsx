@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectExampleBook } from '../actions/index';
+import { postForm3 } from '../actions/index';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 
 /*
-	- street address
-	- city
-	-	state
-	- zip
-	- button to landing page
+  - street address
+  - city
+  -	state
+  - zip
+  - button to landing page
 */
 
-export default class Form3 extends Component {
+class Form3 extends Component {
   constructor(props) {
     super(props)
 
@@ -88,7 +88,12 @@ export default class Form3 extends Component {
             onChange={this.onZipChange}
           />
 
-          <Link type='submit' className='btn btn-primary' to="/">
+          <Link 
+            onClick={() => this.props.postForm3(this.state)}
+            type='submit' 
+            className='btn btn-primary' 
+            to="/"
+          >
             Save and Continue Home
           </Link>
         </form>
@@ -96,3 +101,13 @@ export default class Form3 extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return { list: state.list};
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ postForm3: postForm3 }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form3);

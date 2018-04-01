@@ -98,14 +98,12 @@ class Form1 extends Component {
 }
 
 function mapStateToProps(state) {
-  // console.log(state)
-  return { list: state.list}
+  return { list: state.list};
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ postForm1: postForm1 }, dispatch);
 }
 
-// export default connect(mapStateToProps)(Form1);
 export default connect(mapStateToProps, mapDispatchToProps)(Form1);
 

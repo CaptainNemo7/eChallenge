@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectExampleBook } from '../actions/index';
 import { bindActionCreators } from 'redux';
+import { postForm2 } from '../actions/index';
+
 import { Link } from 'react-router-dom';
 
 /*
@@ -11,7 +12,7 @@ import { Link } from 'react-router-dom';
 	- button to FORM3
 */
 
-export default class Form2 extends Component {
+class Form2 extends Component {
   constructor(props) {
     super(props)
 
@@ -24,6 +25,7 @@ export default class Form2 extends Component {
     this.onFirstNameChange = this.onFirstNameChange.bind(this);
     this.onLastNameChange = this.onLastNameChange.bind(this);
     this.onPhoneChange = this.onPhoneChange.bind(this);
+
   }
 
   onFirstNameChange(event) {
@@ -73,7 +75,12 @@ export default class Form2 extends Component {
           />
 
 
-          <Link type='submit' className='btn btn-primary' to="/form3">
+          <Link
+            onClick={() => this.props.postForm2(this.state)}
+            type='submit' 
+            className='btn btn-primary' 
+            to="/form3"
+          >
             Save and Continue to Form 3
           </Link>
   
@@ -82,3 +89,14 @@ export default class Form2 extends Component {
     );
   }
 }
+
+
+function mapStateToProps(state) {
+  return { list: state.list};
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ postForm2: postForm2 }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form2);
