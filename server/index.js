@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
-var bodyParser = require('body-parser');
+const db = require('../database/index')
+
+
+let bodyParser = require('body-parser');
 
 
 
@@ -35,16 +38,19 @@ app.get('/', (req,res) => {
 
 app.post('/form1', (req, res) => {
   console.log(req.body);
+  db.saveForm1(req.body);
   res.sendStatus(200)
 })
 
 app.post('/form2', (req, res) => {
   console.log(req.body);
+  db.saveForm2(req.body);
   res.sendStatus(200)
 })
 
 app.post('/form3', (req, res) => {
   console.log(req.body);
+  db.saveForm3(req.body);
   res.sendStatus(200)
 })
 
