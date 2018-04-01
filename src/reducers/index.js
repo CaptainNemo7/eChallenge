@@ -1,11 +1,9 @@
 import { combineReducers } from 'redux';
-import TestExampleReducer from './reducer_tester';
-import ActiveBook from './reducer_active_list_item'
+import FormPost from './reducer_form_post';
+// import ActiveBook from './reducer_active_list_item'
 
 const rootReducer = combineReducers({
-  // state: (state ={}) => state
-  list: TestExampleReducer,
-  activeBook: ActiveBook
+  list: FormPost
 });
 
 export default rootReducer;

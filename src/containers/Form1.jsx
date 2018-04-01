@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectExampleBook } from '../actions/index';
+import { postForm1 } from '../actions/index';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 	- button to FORM2
 */
 
-export default class Form1 extends Component {
+class Form1 extends Component {
   constructor(props) {
     super(props)
 
@@ -24,6 +24,8 @@ export default class Form1 extends Component {
     this.onUsernameChange = this.onUsernameChange.bind(this);
     this.onPasswordChange = this.onPasswordChange.bind(this);
     this.onEmailChange = this.onEmailChange.bind(this);
+
+    this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
   onUsernameChange(event) {
@@ -44,11 +46,19 @@ export default class Form1 extends Component {
     })
   }
 
+  onFormSubmit(event) {
+    // event.preventDefault();
+    console.log('hit ', this.props)
+    // this.props.postForm1(this.state);
+  }
+
   render() {
+    // {console.log(this.props)}
     return (
       <div>
         <h1>Form1</h1>
-        <form 
+        <form
+          onSubmit={this.onFormSubmit}
           className='input-group'
         >
           <input
@@ -72,13 +82,30 @@ export default class Form1 extends Component {
             onChange={this.onEmailChange}
           />
 
-          <span className="input-group-btn">
-            <Link type='submit' className='btn btn-secondary' to="/form2">
-              Save and Continue to Form 2
-            </Link>
-          </span>     
+      
+          <Link 
+            onClick={() => this.props.postForm1(this.state)}
+            type='submit' 
+            className='btn btn-primary' 
+            to="/form2">
+            Save and Continue to Form 2
+          </Link>
+  
         </form>
       </div>
     );
   }
 }
+
+function mapStateToProps(state) {
+  // console.log(state)
+  return { list: state.list}
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ postForm1: postForm1 }, dispatch);
+}
+
+// export default connect(mapStateToProps)(Form1);
+export default connect(mapStateToProps, mapDispatchToProps)(Form1);
+

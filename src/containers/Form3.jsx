@@ -88,11 +88,9 @@ export default class Form3 extends Component {
             onChange={this.onZipChange}
           />
 
-          <span className="input-group-btn">
-            <Link type='submit' className='btn btn-secondary' to="/">
-              Save and Continue Home
-            </Link>
-          </span>     
+          <Link type='submit' className='btn btn-primary' to="/">
+            Save and Continue Home
+          </Link>
         </form>
       </div>
     );

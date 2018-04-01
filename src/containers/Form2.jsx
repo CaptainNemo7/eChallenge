@@ -72,22 +72,13 @@ export default class Form2 extends Component {
             onChange={this.onPhoneChange}
           />
 
-          <span className="input-group-btn">
-            <Link type='submit' className='btn btn-secondary' to="/form3">
-              Save and Continue to Form 3
-            </Link>
-          </span>     
+
+          <Link type='submit' className='btn btn-primary' to="/form3">
+            Save and Continue to Form 3
+          </Link>
+  
         </form>
       </div>
     );
   }
 }
-
-
-
-    // return (
-    //   <div>
-    //     <div>Form2 works</div>
-    //     <Link to="/form3">Save and Continue to Form 3</Link>
-    //   </div>
-    // );
